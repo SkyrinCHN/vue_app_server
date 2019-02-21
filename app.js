@@ -74,7 +74,7 @@ app.use(
       "http://localhost:3001",
       "http://127.0.0.1:5500",
       "http://127.0.0.1:3000",
-      "http://localhost:3000"
+      "http://localhost:3000",
     ],
     credentials: true
   })
@@ -105,23 +105,25 @@ app.get("/getImages", (req, res) => {
   var pics = [
     {
       id: 1,
-      img_url: "http://localhost:3000/img/1024*400.jpg"
+      img_url: "http://skyrinbyliu.applinzi.com/img/1024*400.jpg"
+      // img_url:"http://localhost:5050/img/1024*400.jpg"
     },
     {
       id: 2,
-      img_url: "http://localhost:3000/img/1024*400_1.jpg"
+      img_url: "http://skyrinbyliu.applinzi.com/img/1024*400_1.jpg"
+      // img_url:"http://localhost:5050/img/1024*400_1.jpg"
     },
     {
       id: 3,
-      img_url: "http://localhost:3000/img/1024*400_2.jpg"
+      img_url: "http://skyrinbyliu.applinzi.com/img/1024*400_2.jpg"
     },
     {
       id: 4,
-      img_url: "http://localhost:3000/img/1024*400_3.jpg"
+      img_url: "http://skyrinbyliu.applinzi.com/img/1024*400_3.jpg"
     },
     {
       id: 5,
-      img_url: "http://localhost:3000/img/1024*400_4.jpg"
+      img_url: "http://skyrinbyliu.applinzi.com/img/1024*400_4.jpg"
     }
   ];
   res.send(pics);
@@ -130,35 +132,35 @@ app.get("/getGoodsInfo", (req, res) => {
   var pics = [
     {
       id: 1,
-      img_url: "http://127.0.0.1:3000/img/lajiao1.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao1.png"
     },
     {
       id: 2,
-      img_url: "http://127.0.0.1:3000/img/lajiao2.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao2.png"
     },
     {
       id: 3,
-      img_url: "http://127.0.0.1:3000/img/lajiao3.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao3.png"
     },
     {
       id: 4,
-      img_url: "http://127.0.0.1:3000/img/lajiao4.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao4.png"
     },
     {
       id: 5,
-      img_url: "http://127.0.0.1:3000/img/lajiao5.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao5.png"
     },
     {
       id: 6,
-      img_url: "http://127.0.0.1:3000/img/lajiao6.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao6.png"
     },
     {
       id: 7,
-      img_url: "http://127.0.0.1:3000/img/lajiao7.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao7.png"
     },
     {
       id: 8,
-      img_url: "http://127.0.0.1:3000/img/lajiao8.png"
+      img_url: "http://skyrinbyliu.applinzi.com/img/lajiao8.png"
     }
   ];
   res.send(pics);
@@ -445,9 +447,9 @@ app.get("/getProduct", (req, res) => {
 app.get("/register", (req, res) => {
   var name = req.query.name;
   var pwd = req.query.pwd;
-  var reg = /^[a-z0-9_]{8,12}$/;
-
+  var reg = /^[a-z0-9_]{5,12}$/;
   if (!reg.test(name)) {
+    console.log(111,name);
     res.send({
       code: -1,
       msg: "用户名格式不正确"
@@ -481,11 +483,11 @@ app.get("/register", (req, res) => {
 //功能十: 验证用户名
 app.get("/existsName", (req, res) => {
   var name = req.query.name;
-  var reg = /^[a-z0-9_]{8,12}$/i;
+  var reg = /^[a-z0-9_]{5,12}$/i;
   if (!reg.test(name)) {
     res.send({
       code: -1,
-      msg: "用户名格式不正确"
+      msg: "失焦验证:用户名格式不正确"
     });
     return;
   }
@@ -511,7 +513,7 @@ app.get("/existsName", (req, res) => {
 app.get("/Login", (req, res) => {
   var name = req.query.name;
   var pwd = req.query.pwd;
-  var reg = /^[a-z0-9_]{3,12}$/i;
+  var reg = /^[a-z0-9_]{5,12}$/i;
   if (!reg.test(name)) {
     res.send({
       code: -1,
@@ -583,37 +585,37 @@ app.get("/getNavInfo", (req, res) => {
   var list = [
     {
       id: 1,
-      img_url: "http://localhost:3000/img/menu1.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu1.png",
       title: "新闻资讯",
       url:'/NewsList'
     },
     {
       id: 2,
-      img_url: "http://localhost:3000/img/menu2.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu2.png",
       title: "买买买",
       url:'/GoodsList'
     },
     {
       id: 3,
-      img_url: "http://localhost:3000/img/menu3.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu3.png",
       title: "购物车",
       url:"/Cart"
     },
     {
       id: 4,
-      img_url: "http://localhost:3000/img/menu4.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu4.png",
       title: "支付",
       url:""
     },
     {
       id: 5,
-      img_url: "http://localhost:3000/img/menu5.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu5.png",
       title: "下单",
       url:""
     },
     {
       id: 6,
-      img_url: "http://localhost:3000/img/menu6.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/menu6.png",
       title: "更多",
       url:""
     }
@@ -625,47 +627,47 @@ app.get("/getNavImages", (req, res) => {
   var list = [
     {
       id: 1,
-      img_url: "http://localhost:3000/img/icons/grid-01.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-01.png",
       title: "美食"
     },
     {
       id: 2,
-      img_url: "http://localhost:3000/img/icons/grid-02.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-02.png",
       title: "洗浴"
     },
     {
       id: 3,
-      img_url: "http://localhost:3000/img/icons/grid-03.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-03.png",
       title: "结婚啦"
     },
     {
       id: 4,
-      img_url: "http://localhost:3000/img/icons/grid-04.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-04.png",
       title: "KTV"
     },
     {
       id: 5,
-      img_url: "http://localhost:3000/img/icons/grid-05.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-05.png",
       title: "找工作"
     },
     {
       id: 6,
-      img_url: "http://localhost:3000/img/icons/grid-06.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-06.png",
       title: "指导班"
     },
     {
       id: 7,
-      img_url: "http://localhost:3000/img/icons/grid-07.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-07.png",
       title: "汽车保养"
     },
     {
       id: 8,
-      img_url: "http://localhost:3000/img/icons/grid-08.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-08.png",
       title: "租房"
     },
     {
       id: 9,
-      img_url: "http://localhost:3000/img/icons/grid-09.png",
+      img_url: "http://skyrinbyliu.applinzi.com/img/icons/grid-09.png",
       title: "装修"
     }
   ];
